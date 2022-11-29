@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import { View } from './components/View';
 import Csv from './Csv';
+import './App.css'
 
 // getting the values of local storage
 const getDatafromLS=()=>{
