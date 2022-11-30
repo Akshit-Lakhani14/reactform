@@ -10,13 +10,13 @@ export class Csv extends Component {
           
             
         alert(`A form was submitted:  ${this.props.forms}`);
-          Axios.post("http://localhost:1002/store-data", {
+          Axios.post("https://juniper-spotty-earthworm.glitch.me/store-data", {
             forms:this.props.forms
         }).then((response) => {
             console.log(response);
               fileDownload(response.data, "destination.csv")
         });
-        Axios.get('http://localhost:1002/download')
+        Axios.get('https://juniper-spotty-earthworm.glitch.me/download')
         .then((res)=> {
           console.log(res.data);
           fileDownload(res.data,"destination.csv")

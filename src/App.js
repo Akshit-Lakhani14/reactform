@@ -48,6 +48,9 @@ export const App = () => {
   }
 
 
+  
+
+
 
   // delete form from LS
   const deleteform=(number)=>{
@@ -69,6 +72,19 @@ export const App = () => {
     })
     setforms(sortedData)
   }
+
+  const handleEnter = (event) => {
+    if (event.key.toLowerCase() === "enter") {
+      const form = event.target.form;
+      const index = [...form].indexOf(event.target);
+      if(index < 3){
+      form.elements[index + 1].focus();
+      event.preventDefault();
+    }else{
+      form.elements[0].focus();
+    }
+    }
+  };
   // saving data to local storage
   useEffect(()=>{
     setAmount(quantity*price)
@@ -84,20 +100,20 @@ export const App = () => {
         <form className="row g-3" onSubmit={handleAddformSubmit}>
         <div className="mb-1 mx-5">
     <label htmlFor="inputNumber" className="form-label">Index No.</label>
-    <input type="Number" onChange={(e)=>setNumber(e.target.value)} value={number} className="form-control" id="inputNumber" />
+    <input type="Number" onKeyDown={handleEnter} onChange={(e)=>setNumber(e.target.value)} value={number} className="form-control" id="inputNumber" />
   </div>
   <div className="mb-1 mx-5">
     <label htmlFor="inputName" className="form-label">Name</label>
-    <input type="name" onChange={(e)=>setName(e.target.value)} value={name} className="form-control" id="inputName"/>
+    <input type="name" onKeyDown={handleEnter} onChange={(e)=>setName(e.target.value)} value={name} className="form-control" id="inputName"/>
   </div>
   <div className="mb-1 mx-5">
     <label htmlFor="inputDate" className="form-label">Quantity</label>
-    <input type="text" onChange={(e)=>setQuantity(e.target.value)} value={quantity} className="form-control" id="inputDate"/>
+    <input type="text" onKeyDown={handleEnter} onChange={(e)=>setQuantity(e.target.value)} value={quantity} className="form-control" id="inputDate"/>
   </div>
 
   <div className="mb-1 mx-5">
     <label htmlFor="inputAge" className="form-label">Price</label>
-    <input type="text" onChange={(e)=>setPrice(e.target.value)} value={price} className="form-control" id="inputAge" />
+    <input type="text" onKeyDown={handleEnter} onChange={(e)=>setPrice(e.target.value)} value={price} className="form-control" id="inputAge" />
   </div>
   <div className="mb-1 mx-5">
     <label htmlFor="inputAge" className="form-label">Amount</label>
