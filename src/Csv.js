@@ -9,7 +9,6 @@ export class Csv extends Component {
       handleSubmit = () => {
           
             
-        alert(`A form was submitted:  ${this.props.forms}`);
           Axios.post("https://juniper-spotty-earthworm.glitch.me/store-data", {
             forms:this.props.forms
         }).then((response) => {
