@@ -93,7 +93,7 @@ export const App = () => {
 
   return (
     <div className='mb-1 mx-5'>
-      <h1>FormList App</h1>
+      <h1>Form</h1>
       <div className='main'>
 
         <div className='form-container'>
@@ -108,26 +108,20 @@ export const App = () => {
   </div>
   <div className="mb-1 mx-5">
     <label htmlFor="inputDate" className="form-label">Quantity</label>
-    <input type="text" onKeyDown={handleEnter} onChange={(e)=>setQuantity(e.target.value)} value={quantity} className="form-control" id="inputDate"/>
+    <input type="number" onKeyDown={handleEnter} onChange={(e)=>setQuantity(e.target.value)} value={quantity} className="form-control" id="inputDate"/>
   </div>
 
   <div className="mb-1 mx-5">
     <label htmlFor="inputAge" className="form-label">Price</label>
-    <input type="text" onKeyDown={handleEnter} onChange={(e)=>setPrice(e.target.value)} value={price} className="form-control" id="inputAge" />
+    <input type="number" onKeyDown={handleEnter} onChange={(e)=>setPrice(e.target.value)} value={price} className="form-control" id="inputAge" />
   </div>
   <div className="mb-1 mx-5">
     <label htmlFor="inputAge" className="form-label">Amount</label>
-    <input type="text" onChange={(e)=>setAmount(e.target.value)} value={quantity*price} className="form-control" id="inputAge" />
+    <input type="number" onChange={(e)=>setAmount(e.target.value)} value={quantity*price} className="form-control" id="inputAge" />
   </div>
  
   
   <div className="mb-1 mx-5">
-    <div className="form-check">
-      <input className="form-check-input" type="checkbox" id="gridCheck"/>
-      <label className="form-check-label" htmlFor="gridCheck">
-        Check me out
-      </label>
-    </div>
   </div>
   <div className="mb-1 mx-5">
     <button type="submit" className="btn btn-primary">Add</button>
